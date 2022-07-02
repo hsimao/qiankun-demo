@@ -17,7 +17,7 @@ let instance = null;
 function render(props = {}) {
   const { container } = props;
   router = new VueRouter({
-    routes,
+    routes
   });
 
   router.$store = store;
@@ -25,7 +25,7 @@ function render(props = {}) {
   instance = new Vue({
     router,
     store,
-    render: h => h(App),
+    render: h => h(App)
   }).$mount(container ? container.querySelector("#app") : "#app");
 }
 

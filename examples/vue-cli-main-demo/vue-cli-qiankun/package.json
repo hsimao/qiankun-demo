@@ -11,6 +11,8 @@
     "core-js": "^3.6.5",
     "element-ui": "^2.3.6",
     "qiankun": "^2.0.19",
+    "sass": "^1.53.0",
+    "sass-loader": "10.0.0",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"

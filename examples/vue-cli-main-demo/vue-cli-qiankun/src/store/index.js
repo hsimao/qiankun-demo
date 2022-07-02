@@ -9,9 +9,9 @@ export default new Vuex.Store({
   state: {
     userInfo: {
       username: "cjfff",
-      organization: "femessage",
+      organization: "femessage"
     },
-    apps: [],
+    apps: []
   },
   mutations: {
     [TYPES.INIT_APPS](state, apps) {
@@ -19,7 +19,7 @@ export default new Vuex.Store({
     },
     [TYPES.INIT_MENUS](state, menus) {
       state.menus = menus;
-    },
+    }
   },
   actions: {
     async [TYPES.INIT_APPS]({ commit }) {
@@ -27,20 +27,25 @@ export default new Vuex.Store({
 
       const menus = payload.map(item => ({
         name: item.name,
-        path: `${item.activeRule}`,
+        path: `${item.activeRule}`
       }));
 
       const apps = payload.map(item => ({
         ...item,
-        activeRule: `#${item.activeRule}`,
-        container: "#sub-application",
+        activeRule: item.activeRuleFn
+          ? item.activeRuleFn
+          : `#${item.activeRule}`,
+        // container: "#sub-application",
+        container: item.container
       }));
+
+      console.log("apps", apps);
 
       commit(TYPES.INIT_APPS, apps);
       commit(TYPES.INIT_MENUS, menus);
 
       return { apps, menus };
-    },
+    }
   },
-  modules: {},
+  modules: {}
 });
